@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { MENU_LIST } from "../constants/sidebar-menu";
+import { MENU_LIST } from "../constants/sidebar-menu.constants";
 import { MenuList } from "../type/sidebar";
 
 export default function Sidebar() {
@@ -21,7 +21,7 @@ export default function Sidebar() {
       <Link href="/">
         <Image
           src={E_COMMERCE_LOGO}
-          className=" ml-[45px]"
+          className="ml-[45px]"
           alt="e-commerce management logo"
           width={88}
           height={30}

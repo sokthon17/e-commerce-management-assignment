@@ -10,7 +10,7 @@ export function DasboardContentLayout({
   return (
     <>
       <TopNavigation title={title} />
-      <div className="w-full h-full place-content-center text-center text-4xl">
+      <div className="w-full h-full place-content-center text-center text-4xl py-4 px-2">
         {children}
       </div>
     </>
