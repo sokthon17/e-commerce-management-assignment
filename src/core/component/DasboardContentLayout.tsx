@@ -1,8 +1,8 @@
-import TopNavigation from "./TopNavigation";
+import TopNavigation from './TopNavigation';
 
 export function DasboardContentLayout({
   title,
-  children,
+  children
 }: {
   title: string;
   children: React.ReactNode;
@@ -10,9 +10,7 @@ export function DasboardContentLayout({
   return (
     <>
       <TopNavigation title={title} />
-      <div className="w-full h-full place-content-center text-center text-4xl py-4 px-2">
-        {children}
-      </div>
+      <div className="relative h-full w-full px-3 py-4 text-4xl">{children}</div>
     </>
   );
 }

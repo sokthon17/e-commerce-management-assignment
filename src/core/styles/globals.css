@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -8,9 +8,12 @@
 body {
   width: 100%;
   height: 100%;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   background: var(--background);
   color: var(--foreground);
+}
+button {
+  cursor: pointer;
 }
 
 *,
@@ -24,4 +27,9 @@ body {
 ul,
 ol {
   list-style: none;
+}
+
+.outline_gray_300 {
+  outline: 1px solid #e0e2e7;
+  border-radius: 6px;
 }

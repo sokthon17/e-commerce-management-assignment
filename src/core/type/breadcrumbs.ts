@@ -1,5 +1,5 @@
 export interface Breadcrumb {
-  url: string;
+  url?: string;
   label: string;
 }
 export type Breadcrumbs = Breadcrumb[];
