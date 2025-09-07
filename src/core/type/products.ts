@@ -2,8 +2,8 @@ export interface Product {
   id: number;
   title: string;
   price: number;
-  sku?: string;
-  stock?: number;
+  sku: string;
+  stock: number;
   category?: string;
   thumbnail?: string;
   meta: Meta;

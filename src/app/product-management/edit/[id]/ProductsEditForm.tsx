@@ -1,6 +1,7 @@
 'use client';
-import BreadCrumbs from '@/core/component/Breadcrumbs';
+import PageActionLayout from '@/core/component/PageActionLayout';
 import { Breadcrumbs } from '@/core/type/breadcrumbs';
+import { InformationForm } from '@/core/type/information-form';
 import { SingleProduct } from '@/core/type/products';
 
 export function ProductsEditForm({ product }: { product: SingleProduct }) {
@@ -8,10 +9,20 @@ export function ProductsEditForm({ product }: { product: SingleProduct }) {
     { label: 'Product', url: '/product-management' },
     { label: 'Edit Product' }
   ];
+  const information: InformationForm = {
+    name: product.title,
+    description: product.description,
+    price: product.price,
+    discount: product.discountPercentage,
+    sku: product.sku,
+    quantity: product.stock
+  };
   return (
-    <div className="flex gap-4">
-      <BreadCrumbs breadcrumbs={breadcrumbs} />
-      {JSON.stringify(product)}
-    </div>
+    <PageActionLayout
+      id={product.id}
+      method="PUT"
+      breadcrumbs={breadcrumbs}
+      information={information}
+    />
   );
 }
