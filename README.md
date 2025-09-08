@@ -30,38 +30,6 @@ npm run dev
 
 This starts your app in development mode, which will purge the server require cache when Remix rebuilds assets so you don't need a process manager restarting the express server. You can access the website by going to `http://localhost:3000` in your browser.
 
-## E2E Testing
-
-This project already includes end to end testing with [playwright](https://playwright.dev/)
-
-All the test cases need to be inside the `tests` directory that is located in the root folder of the project.
-
-For every commit to BitBucket the default pipeline will run and the E2E testing is part of that pipeline.
-
-### Create a new test case
-
-Create a new file and the file should be ending with `.test.ts` to be recognized and run. This is the default template for a test case
-
-```ts
-import { test, expect } from '@playwright/test';
-
-test.describe('Test Name', () => {
-  test('Step N for test', async ({ page }) => {
-    await page.goto('/'); // Go to Homepage: Insert the relative URL you want to test
-
-    const title = await page.locator(`title`).textContent(); // You can use JS locators like ( tag / .className / #id ) to locate content
-    expect(title).toEqual('Hello World');
-  });
-});
-```
-
-### Run testing locally
-
-You can run tests in two ways:
-
-- CLI - will just run in the command line: `npm run e2e`
-- UI - will run the test in a view window executing all the steps in the test: `npm run e2e:ui`
-
 You can start editing the pages under app/. The page updates automatically as you make changes.
 Dashboard layout following the Figma design
 Dynamic fetching of products and categories from DummyJSON API
