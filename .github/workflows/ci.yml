@@ -86,5 +86,8 @@ jobs:
       group: ci-e2e-${{ github.ref }}
       cancel-in-progress: true
     steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
       - name: 🧪 Run Playwright tests
         uses: ./.github/actions/end-to-end-tests
