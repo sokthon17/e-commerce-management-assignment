@@ -6,13 +6,17 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint",
-    "test": "jest",
-    "format:check": "prettier --check .",
+    "lint": "eslint --no-error-on-unmatched-pattern --ext .js,.ts,.jsx,.tsx .",
+    "test": "jest CI=true vitest",
+    "format:check": "prettier --check --ignore-unknown .",
     "typecheck": "tsc --noEmit",
-    "e2e": "playwright test"
+    "prepare": "husky || true",
+    "e2e": " CI=true npx playwright test",
+    "e2e:ui": "npx playwright test --ui",
+    "e2e:install": "npx playwright install --with-deps chromium"
   },
   "dependencies": {
+    "@playwright/test": "^1.55.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "next": "15.5.2",
@@ -29,12 +33,15 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
-    "eslint": "^9",
+    "eslint": "^9.35.0",
     "eslint-config-next": "15.5.2",
     "postcss": "^8.5.6",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -50,5 +57,8 @@
     "*.css": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
