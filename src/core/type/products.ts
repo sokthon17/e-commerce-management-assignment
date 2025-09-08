@@ -1,10 +1,5 @@
-export interface Product {
+export interface Product extends ProductDetail {
   id: number;
-  title: string;
-  price: number;
-  sku: string;
-  stock: number;
-  category?: string;
   thumbnail?: string;
   meta: Meta;
 }
@@ -52,4 +47,22 @@ export interface Dimension {
   width: number;
   height: number;
   depth: number;
+}
+
+export interface ProductDetail {
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  sku: string;
+  stock: number;
+}
+
+export interface AddNewProduct {
+  name: string;
+  description: string;
+  price: number;
+  discount: number;
+  sku: string;
+  quantity: number;
 }

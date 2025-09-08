@@ -19,7 +19,7 @@ export default function App({
           <div className="h-full min-h-svh max-w-full min-w-[280px] bg-blue-700 py-[30px]">
             <Sidebar />
           </div>
-          <main className="flex h-full w-full flex-col">{children}</main>
+          <main className="flex h-full w-full flex-col overflow-hidden">{children}</main>
         </div>
       </body>
     </html>

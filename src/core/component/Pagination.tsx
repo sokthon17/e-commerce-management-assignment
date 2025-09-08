@@ -13,7 +13,10 @@ interface PaginationProps {
 }
 
 export default function Pagination({ total, limit, currentPage, onPageChange }: PaginationProps) {
-  const totalPages = Math.ceil(total / limit);
+  const totalPages = useMemo(() => {
+    if (!total || !limit) return 1;
+    return Math.ceil(total / limit);
+  }, [total, limit]);
 
   const handleEllipsisClick = (key: string) => {
     if (key === 'left') {

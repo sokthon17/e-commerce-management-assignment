@@ -1,4 +1,4 @@
-import { deleteProduct } from '@/core/api/api.products';
+import { deleteProductApi } from '@/core/api/api.products';
 import BaseFullTable from '@/core/component/BaseFullTable';
 import CheckboxComponent from '@/core/component/Checkbox';
 import ConfirmDialog from '@/core/component/ConfirmDialog';
@@ -21,13 +21,14 @@ export default function ProductListTable({ products }: { products: Product[] }) 
       setSelected(products.map((p) => p.id));
     }
   };
+
   const toggleSelect = (id: number) => {
     setSelected((prev) => (prev.includes(id) ? prev.filter((pid) => pid !== id) : [...prev, id]));
   };
 
   const handleDelete = async (id: number) => {
     setProduct((prev) => prev.filter((p) => p.id !== id));
-    deleteProduct(id);
+    deleteProductApi(id);
   };
 
   const tableHeader: TableHeader[] = [
@@ -98,7 +99,11 @@ export default function ProductListTable({ products }: { products: Product[] }) 
               <Link href={`/product-management/edit/${item.id}`}>
                 <Image src="/svg/edit-gray-500-16.svg" alt="edit product" width={16} height={16} />
               </Link>
-              <ConfirmDialog action={() => handleDelete(item.id)} icon="/svg/bin-gray-500-16.svg" />
+              <ConfirmDialog
+                name={item.title}
+                action={() => handleDelete(item.id)}
+                icon="/svg/bin-gray-500-16.svg"
+              />
             </div>
           )
         }

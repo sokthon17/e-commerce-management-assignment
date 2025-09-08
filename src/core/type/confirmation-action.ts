@@ -4,6 +4,7 @@ export type ConfirmationActionProps = {
     action: () => void;
   };
   process: {
+    icon?: string;
     label: string;
     action: () => void;
   };

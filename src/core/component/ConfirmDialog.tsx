@@ -4,10 +4,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 export default function ConfirmDialog({
+  name,
   action,
   label,
   icon
 }: {
+  name;
   label?: string;
   icon?: string;
   action: () => void;
@@ -28,7 +30,9 @@ export default function ConfirmDialog({
       {open && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/40">
           <div className="w-80 rounded-2xl bg-white p-6 shadow-xl">
-            <h2 className="mb-4 text-lg font-semibold">Are you sure?</h2>
+            <h2 className="mb-4 text-sm font-semibold whitespace-pre-wrap">
+              Are you sure you want to delete {name} ?
+            </h2>
             <div className="flex justify-end gap-3">
               <button onClick={() => setOpen(false)} className="rounded-lg border px-4 py-2">
                 Cancel

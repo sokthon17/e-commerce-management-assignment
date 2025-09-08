@@ -1,5 +1,5 @@
 'use client';
-import { getProducts } from '@/core/api/api.products';
+import { getProductsApi } from '@/core/api/api.products';
 import Loading from '@/core/component/Loading';
 import Pagination from '@/core/component/Pagination';
 import { Product } from '@/core/type/products';
@@ -17,7 +17,7 @@ export function ProductList() {
     async function fetchProducts() {
       setIsLoading(true);
       try {
-        const { products, total } = await getProducts(limit, (page - 1) * limit);
+        const { products, total } = await getProductsApi(limit, (page - 1) * limit);
         setProducts(products);
         setTotal(total);
       } finally {

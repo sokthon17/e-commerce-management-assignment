@@ -18,7 +18,12 @@ export default function ConfirmationAction({ action }: { action: ConfirmationAct
         onClick={action.process.action}
         className="flex h-fit w-fit gap-1 rounded-lg bg-blue-700 px-3.5 py-2.5 text-sm leading-5 font-normal text-white outline outline-transparent outline-solid"
       >
-        <Image src="/svg/folder-white-20.svg" alt={action.process.label} width={20} height={20} />
+        <Image
+          src={action.process.icon ?? '/svg/folder-white-20.svg'}
+          alt={action.process.label}
+          width={20}
+          height={20}
+        />
         {action.process.label}
       </button>
     </div>
