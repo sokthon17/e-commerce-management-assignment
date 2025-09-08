@@ -13,35 +13,31 @@ next/font – optimized font loading with Geist
 
 Clone the repo and install dependencies:
 
-npm install
+## Getting Started
 
+First, install the development:
+
+```bash
+npm  install
 # or
-
 yarn install
+```
 
-# or
-
-pnpm install
-
-Run the development server:
+```bash
 npm run dev
-
 # or
-
 yarn dev
-
 # or
-
 pnpm dev
-
 # or
-
 bun dev
+```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 Open http://localhost:3000
 in your browser.
-You can start editing the pages under app/. The page updates automatically as you make changes.
 
+You can start editing the pages under app/. The page updates automatically as you make changes.
 Dashboard layout following the Figma design
 Dynamic fetching of products and categories from DummyJSON API
 Add, update, and view product details
