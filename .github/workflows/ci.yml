@@ -78,12 +78,12 @@ jobs:
       - name: ✅ Typecheck
         run: npm run typecheck
 
-  test:
-    name: ⚡ Unit tests
+  e2e:
+    name: 🎭 Playwright tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
-      group: ci-test-${{ github.ref }}
+      group: ci-e2e-${{ github.ref }}
       cancel-in-progress: true
     steps:
       - name: ⬇️ Checkout repo
@@ -99,19 +99,14 @@ jobs:
       - name: 📥 Install dependencies
         run: npm ci
 
-      - name: 🧪 Run tests
-        run: npm test
+      - name: 📦 Build Next.js
+        run: npm run build
 
-  e2e:
-    name: 🎭 Playwright tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    concurrency:
-      group: ci-e2e-${{ github.ref }}
-      cancel-in-progress: true
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
+      - name: 🎭 Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: 🚀 Start Next.js server
+        run: npm run start & npx wait-on http://localhost:3000
 
       - name: 🧪 Run Playwright tests
-        uses: ./.github/actions/end-to-end-tests
+        run: npx playwright test
