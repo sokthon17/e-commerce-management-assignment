@@ -27,13 +27,3 @@ jobs:
 
       - name: 📥 Install dependencies
         run: npm ci
-
-      # Build the project with sourcemaps as artifacts
-      - name: 📦 Build
-        run: npx remix vite:build --sourcemapClient --sourcemapServer
-
-      - name: 📦 Archive build
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: dist
