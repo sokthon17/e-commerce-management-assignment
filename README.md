@@ -43,16 +43,16 @@ For every commit to BitBucket the default pipeline will run and the E2E testing 
 Create a new file and the file should be ending with `.test.ts` to be recognized and run. This is the default template for a test case
 
 ```ts
-import {test, expect} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test.describe('Test Name', () => {
-    test('Step N for test', async ({page}) => {
-         await page.goto('/') // Go to Homepage: Insert the relative URL you want to test
+  test('Step N for test', async ({ page }) => {
+    await page.goto('/'); // Go to Homepage: Insert the relative URL you want to test
 
-        const title = await page.locator(`title`).textContent() // You can use JS locators like ( tag / .className / #id ) to locate content
-        expect(title).toEqual('Hello World')
-    })
-})
+    const title = await page.locator(`title`).textContent(); // You can use JS locators like ( tag / .className / #id ) to locate content
+    expect(title).toEqual('Hello World');
+  });
+});
 ```
 
 ### Run testing locally
