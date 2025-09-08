@@ -51,7 +51,7 @@ runs:
 
     - name: 🍄 Run Playwright tests
       shell: 'bash'
-      run: URL=${{ inputs.url }} npx playwright test
+      run: URL=${{ inputs.url }} npx playwright test e2e/
 
     - name: 🗒 Report
       uses: actions/upload-artifact@v4
