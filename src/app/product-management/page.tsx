@@ -1,4 +1,4 @@
-import { DasboardContentLayout } from '@/core/component/DasboardContentLayout';
+import { DasboardContentLayout } from '@/core/components/DasboardContentLayout';
 import { ProductList } from './components/ProductList';
 import ProductTopActions from './components/ProductTopActions';
 

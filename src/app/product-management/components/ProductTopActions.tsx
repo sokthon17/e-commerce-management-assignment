@@ -1,8 +1,8 @@
 'use client';
-import { BaseButton } from '@/core/component/BaseButton';
-import { SearchInputComponent } from '@/core/component/SearchInput';
+import { BaseButton } from '@/core/components/BaseButton';
+import { SearchInputComponent } from '@/core/components/SearchInput';
 import { useRouter } from 'next/navigation';
-import { DateSelection } from '../../../core/component/DateSelection';
+import { DateSelection } from '../../../core/components/DateSelection';
 import { ProductCategory } from './ProductCategory';
 import ProductFilter from './ProductFilter';
 

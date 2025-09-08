@@ -1,5 +1,5 @@
 'use client';
-import { BaseButton } from '@/core/component/BaseButton';
+import { BaseButton } from '@/core/components/BaseButton';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { ProductCategories } from '../constants/category.constants';

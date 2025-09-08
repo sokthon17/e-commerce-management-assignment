@@ -1,7 +1,7 @@
 'use client';
 import { getProductsApi } from '@/core/api/api.products';
-import Loading from '@/core/component/Loading';
-import Pagination from '@/core/component/Pagination';
+import Loading from '@/core/components/Loading';
+import Pagination from '@/core/components/Pagination';
 import { Product } from '@/core/type/products';
 import { useEffect, useState } from 'react';
 import ProductListTable from './ProductListTable';

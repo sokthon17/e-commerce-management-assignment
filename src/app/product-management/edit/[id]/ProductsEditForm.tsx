@@ -1,7 +1,7 @@
 'use client';
 
 import { updateProductApi } from '@/core/api/api.products';
-import PageActionLayout from '@/core/component/PageActionLayout';
+import PageActionLayout from '@/core/components/PageActionLayout';
 import { Breadcrumbs } from '@/core/type/breadcrumbs';
 import { ConfirmationActionProps } from '@/core/type/confirmation-action';
 import { InformationForm } from '@/core/type/information-form';

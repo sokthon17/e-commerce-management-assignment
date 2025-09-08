@@ -1,4 +1,4 @@
-import { BaseButton } from '@/core/component/BaseButton';
+import { BaseButton } from '@/core/components/BaseButton';
 
 export function DateSelection() {
   return (

@@ -1,7 +1,7 @@
 import { deleteProductApi } from '@/core/api/api.products';
-import BaseFullTable from '@/core/component/BaseFullTable';
-import CheckboxComponent from '@/core/component/Checkbox';
-import ConfirmDialog from '@/core/component/ConfirmDialog';
+import BaseFullTable from '@/core/components/BaseFullTable';
+import CheckboxComponent from '@/core/components/Checkbox';
+import ConfirmDialog from '@/core/components/ConfirmDialog';
 import { Product } from '@/core/type/products';
 import { TableHeader } from '@/core/type/table-type';
 import clsx from 'clsx';
@@ -13,6 +13,10 @@ import { dateFormat } from '../utils/date-formated';
 export default function ProductListTable({ products }: { products: Product[] }) {
   const [selected, setSelected] = useState<number[]>([]);
   const [, setProduct] = useState(products);
+  const [brokenImages, setBrokenImages] = useState({});
+  const handleError = (index) => {
+    setBrokenImages((prev) => ({ ...prev, [index]: true }));
+  };
 
   const toggleSelectAll = () => {
     if (selected.length === products.length) {
@@ -76,11 +80,16 @@ export default function ProductListTable({ products }: { products: Product[] }) 
               />
               <div className="flex gap-2">
                 <Image
-                  className="border border-solid border-transparent"
-                  src={item.thumbnail || '/image/default-product.jpg'}
+                  className="border border-solid border-transparent object-contain"
+                  src={
+                    brokenImages[item.id] || !item.thumbnail
+                      ? '/image/default-product.jpg'
+                      : item.thumbnail
+                  }
                   alt={item.title}
                   width={44}
                   height={44}
+                  onError={() => handleError(item.id)}
                 />
                 <div className="flex flex-col gap-1">
                   <p>{item.title}</p>

@@ -1,6 +1,6 @@
 import { getProductApi } from '@/core/api/api.products';
-import { DasboardContentLayout } from '@/core/component/DasboardContentLayout';
-import Loading from '@/core/component/Loading';
+import { DasboardContentLayout } from '@/core/components/DasboardContentLayout';
+import Loading from '@/core/components/Loading';
 import { Suspense } from 'react';
 import { ProductsEditForm } from './ProductsEditForm';
 
