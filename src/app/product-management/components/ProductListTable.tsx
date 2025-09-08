@@ -74,7 +74,19 @@ export default function ProductListTable({ products }: { products: Product[] }) 
                 checked={selected.includes(item.id)}
                 onChange={() => toggleSelect(item.id)}
               />
-              {item.title}
+              <div className="flex gap-2">
+                <Image
+                  className="border border-solid border-transparent"
+                  src={item.thumbnail || '/image/default-product.jpg'}
+                  alt={item.title}
+                  width={44}
+                  height={44}
+                />
+                <div className="flex flex-col gap-1">
+                  <p>{item.title}</p>
+                  <p>{item.id} Varient</p>
+                </div>
+              </div>
             </div>
           )
         },

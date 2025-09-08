@@ -1,16 +1,26 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.dummyjson.com',
+        port: '',
+        pathname: '/product-images/**'
+      }
+    ]
+  },
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/dashboard",
-        permanent: true,
-      },
+        source: '/',
+        destination: '/dashboard',
+        permanent: true
+      }
     ];
-  },
+  }
 };
 
 export default nextConfig;

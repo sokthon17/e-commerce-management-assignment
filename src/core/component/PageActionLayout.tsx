@@ -40,8 +40,8 @@ export default function GeneralInformationForm({
           <BreadCrumbs breadcrumbs={breadcrumbs} />
           <ConfirmationAction action={confirmationAction} />
         </div>
-        <div className="grid grid-cols-[auto_264px] gap-6">
-          <div className="flex flex-col gap-[72px]">
+        <div className="grid gap-6 lg:grid-cols-[auto_264px]">
+          <div className="flex flex-col gap-9 lg:gap-[72px]">
             <div className="flex flex-col gap-3.5">
               <h3 className="text-lg leading-7 text-gray-800">General Information</h3>
               <InputForm

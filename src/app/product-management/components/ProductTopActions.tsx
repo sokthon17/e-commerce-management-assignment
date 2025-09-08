@@ -26,7 +26,7 @@ export default function ProductTopActions() {
           className="bg-blue-700 px-3.5 py-2.5 text-white outline-transparent"
         />
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between not-xl:flex-col-reverse not-xl:gap-5">
         <ProductCategory />
         <div className="grid grid-cols-[1fr_auto_auto] gap-4">
           <SearchInputComponent placeholder="Search product. . ." />
