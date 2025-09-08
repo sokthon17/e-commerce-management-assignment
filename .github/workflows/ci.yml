@@ -78,12 +78,12 @@ jobs:
       - name: ✅ Typecheck
         run: npm run typecheck
 
-  test:
-    name: ⚡ Unit tests
+  e2e:
+    name: 🎭 Playwright tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
-      group: ci-test-${{ github.ref }}
+      group: ci-e2e-${{ github.ref }}
       cancel-in-progress: true
     steps:
       - name: ⬇️ Checkout repo
@@ -99,27 +99,14 @@ jobs:
       - name: 📥 Install dependencies
         run: npm ci
 
-      - name: 🧪 Run tests
-        run: npm test
+      - name: 📦 Build Next.js
+        run: npm run build
 
-  e2e:
-    name: 🎭 Playwright tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    concurrency:
-      group: ci-e2e-${{ github.ref }}
-      cancel-in-progress: true
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
+      - name: 🎭 Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: 🚀 Start Next.js server
+        run: npm run start & npx wait-on http://localhost:3000
 
       - name: 🧪 Run Playwright tests
-        uses: ./.github/actions/end-to-end-tests
-        with:
-          TEST_PUBLIC_STORE_DOMAIN: ${{ vars.TEST_PUBLIC_STORE_DOMAIN }}
-          TEST_PUBLIC_STOREFRONT_API_TOKEN: ${{ secrets.TEST_PUBLIC_STOREFRONT_API_TOKEN }}
-          TEST_PRIVATE_STOREFRONT_API_TOKEN: ${{ secrets.TEST_PRIVATE_STOREFRONT_API_TOKEN }}
-          TEST_PUBLIC_STOREFRONT_ID: ${{ vars.TEST_PUBLIC_STOREFRONT_ID }}
-          TEST_PRIVATE_MULTIPASS_SECRET: ${{ secrets.TEST_PRIVATE_MULTIPASS_SECRET }}
-          TEST_PUBLIC_CHECKOUT_DOMAIN: ${{ vars.TEST_PUBLIC_CHECKOUT_DOMAIN }}
-          TEST_SHOP_ID: ${{ vars.TEST_SHOP_ID }}
+        run: npx playwright test
