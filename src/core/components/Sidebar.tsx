@@ -9,13 +9,15 @@ import { MenuList } from '../type/sidebar';
 
 export default function Sidebar() {
   const E_COMMERCE_LOGO = '/logo/e-c-logo.png';
+
   const SIDEBAR_MENU: MenuList[] = MENU_LIST;
   const pathname = usePathname();
-  const [currentPath, setCurrentPath] = useState(pathname);
+  const [currentPath, setCurrentPath] = useState<string | null>(null);
 
   useEffect(() => {
     setCurrentPath(pathname);
   }, [pathname]);
+
   return (
     <>
       <Link href="/">
@@ -29,7 +31,7 @@ export default function Sidebar() {
       </Link>
       <div className="mt-8 text-white">
         {SIDEBAR_MENU.map((list, idx) => {
-          const isActive = currentPath.startsWith(list.route || '');
+          const isActive = currentPath ? currentPath.startsWith(list.route || '') : false;
           return (
             <Link
               key={idx}
