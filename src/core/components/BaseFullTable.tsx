@@ -53,9 +53,9 @@ export default function BaseFullTable<T>({
                     : 'h-20 cursor-pointer border-b border-b-[#F0F1F3] text-left'
                 }
               >
-                {rowCells.map((cell, i) => (
+                {rowCells.map((cell, idx) => (
                   <td
-                    key={i}
+                    key={idx}
                     className="gap-2.5 truncate px-[22px] py-[18px] text-left text-sm leading-6 tracking-[-.31px] text-[#6E7079]"
                   >
                     {cell.th ?? cell.td}
