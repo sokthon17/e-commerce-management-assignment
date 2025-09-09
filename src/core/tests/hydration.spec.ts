@@ -1,16 +1,18 @@
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
-test('check for hydration warnings', async ({ page }) => {
-  const messages: string[] = [];
+test('should not have hydration errors', async ({ page }) => {
+  const errors: string[] = [];
+
   page.on('console', (msg) => {
-    if (msg.type() === 'error' && msg.text().includes('hydration')) {
-      messages.push(msg.text());
+    if (msg.type() === 'error' || msg.type() === 'warning') {
+      const text = msg.text();
+      if (text.includes('hydration')) {
+        errors.push(text);
+      }
     }
   });
-  await page.goto('http://localhost:3000/');
-  await page.waitForTimeout(2000);
 
-  if (messages.length > 0) {
-    throw new Error(`Hydration warnings detected:\n${messages.join('\n')}`);
-  }
+  await page.goto('http://localhost:3000');
+
+  expect(errors).toEqual([]);
 });

@@ -79,7 +79,7 @@ jobs:
         run: npm run typecheck
 
   hydration:
-    name: 🚨 Hydration Check
+    name: 🚨 Hydration
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
