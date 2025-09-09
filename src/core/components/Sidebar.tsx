@@ -51,7 +51,7 @@ export default function Sidebar() {
               <p
                 className={clsx(
                   isActive ? 'text-white' : 'text-indigo-200',
-                  'font-medium transition-all ease-in-out'
+                  'text-sm font-medium transition-all ease-in-out'
                 )}
               >
                 {list.name}
